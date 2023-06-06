@@ -1,0 +1,135 @@
+.baner-container {
+  width: 100%;
+  /* height: 30rem; */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
+
+.baner-description {
+  width: 40%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.baner-description-box {
+  width: 90%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.baner-pic {
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.baner-pic-box {
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.baner-pic-box img {
+  width: 70%;
+  height: 90%;
+}
+
+.product-container {
+  width: 100%;
+  /* height: 20rem; */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product-box {
+  width: 90%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6%;
+}
+
+.product-boxes {
+  width: 25%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-end;
+  /* border: 1px solid black; */
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.product-boxes img {
+  width: 180px;
+  height: 180px;
+}
+
+/* BLOG */
+
+.blog-container {
+  width: 100%;
+  height: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.blog-box {
+  width: 90%;
+  height: 100%;
+
+  display: flex;
+}
+
+.blog-txt {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-txt-box {
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.blog-img {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-img img {
+  width: 90%;
+  height: 95%;
+}
