@@ -2,7 +2,7 @@ import "./componentstyle.css";
 
 function Baner(props:any) {
 
-   const id = props.id;
+   // const id = props.id;
 
     return <>
      <div style={props.style} className="baner-container">

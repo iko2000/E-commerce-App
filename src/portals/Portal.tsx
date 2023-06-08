@@ -1,4 +1,4 @@
-import React, {useMemo, useEffect} from 'react';
+import { useEffect} from 'react';
 import ReactDOM from "react-dom";
 
 interface ModalProps {

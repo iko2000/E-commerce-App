@@ -133,3 +133,15 @@
   width: 90%;
   height: 95%;
 }
+
+
+
+
+@media only screen and (max-width: 780px) {
+  .baner-description {
+    width: 100%;
+  }
+  .baner-pic {
+    width: 100%;
+  }
+}

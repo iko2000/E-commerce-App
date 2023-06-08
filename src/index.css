@@ -1,7 +1,7 @@
 /* STYLE HEADER */
 @font-face {
   font-family: eightiesfont;
-  src: url("./assets//Fonts/toxigenesis\ bd.otf");
+  src: url("./assets//Fonts/Nunito-Bold.ttf");
 }
 @font-face {
   font-family: lato;
@@ -173,7 +173,6 @@ footer {
   display: flex;
   justify-content: center;
   font-family: lato;
-
 }
 
 .item-picture-box {
@@ -207,7 +206,6 @@ footer {
   justify-content: center;
   align-items: center;
   font-family: lato;
-
 }
 
 .item-description {
@@ -220,7 +218,6 @@ footer {
   flex-direction: column;
   gap: 20px;
   font-family: lato;
-
 }
 
 .addtocart {
@@ -232,7 +229,6 @@ footer {
   justify-content: center;
   align-items: center;
   font-family: lato;
-
 }
 
 .quantity {
@@ -249,12 +245,19 @@ footer {
 }
 
 .btn {
-  width: 40%;
-  height: 70%;
+  width: 80%;
+  height: 100%;
+
 }
 .btn button {
   width: 100%;
   height: 100%;
+  background-color: var(--strongyellow);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-family: lato;
+  cursor: pointer;
 }
 
 .item-features-container {
@@ -264,7 +267,6 @@ footer {
   display: flex;
   justify-content: center;
   font-family: lato;
-
 }
 
 .item-features-features {
@@ -350,7 +352,6 @@ footer {
   padding: 30px;
   z-index: 3;
   font-family: lato;
-
 }
 
 .cart-container {
@@ -398,6 +399,7 @@ footer {
   height: 50px;
   border: none;
   cursor: pointer;
+  font-family: eightiesfont;
 }
 .btnyellow:active {
   color: black;
@@ -411,6 +413,7 @@ footer {
   border: none;
   cursor: pointer;
   border: 1px solid black;
+  font-family: eightiesfont;
 }
 
 /* CHECKOUT page */
@@ -420,7 +423,6 @@ footer {
   display: flex;
   justify-content: center;
   font-family: roboto;
-
 }
 
 .checkout-container input {
@@ -451,7 +453,6 @@ footer {
   background-color: wheat;
   padding-top: 25px;
   font-family: roboto;
-
 }
 .checkout-body {
   width: 100%;
@@ -526,4 +527,103 @@ footer {
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
+}
+
+.burgermenu {
+  display: none;
+}
+.h6 {
+  font-size: "25px";
+   color: "black";
+  font-weight: "bold"
+}
+
+@media only screen and (max-width: 780px) {
+  .active-nav {
+    display: none;
+  }
+  .header-active {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 6.5rem;
+    background-color: var(--backgorund-color);
+    font-family: lato;
+  }
+  .burgermenu {
+    display: block;
+  }
+  .ul {
+    display: none;
+  }
+  nav {
+    width: 95%;
+  }
+  footer {
+    display: none;
+  }
+  .baner-row {
+    flex-direction: column;
+  }
+  .banner-reverse-home {
+    flex-direction: column;
+  }
+  .banner-reverse {
+    flex-direction: column;
+  }
+  .item-container {
+    flex-direction: column;
+
+    height: 50rem;
+  }
+  .item-picture-box {
+    width: 100%;
+  }
+  .item-description-box {
+    width: 100%;
+  }
+  .item-description {
+    height: 30%;
+  }
+  .item-features-container {
+    height: fit-content;
+  }
+  .item-features-features p {
+    font-size: 12px;
+  }
+  .item-features-checkbox-box h2 {
+    font-size: 15px;
+  }
+  .basket {
+    right: 0%;
+    top: 30%;
+  }
+  .btnyellow {
+    width: 90px;
+  }
+  .blog-container {
+    margin-top: 50px;
+  }
+  .product-boxes img {
+    width: 60px;
+    height: 70px;
+  }
+  .h6 {
+    font-size: 10px;
+  }
+  .addtocart {
+    height: 100px;
+    width: 300px;
+
+  }
+  .btn {
+    width: 80%;
+    height: 50px;
+  }
+  .quantity {
+    gap: 10px;
+  }
+  .quantity button {
+    height: 100%;
+  }
 }

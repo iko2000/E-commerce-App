@@ -1,6 +1,5 @@
 import Baner from "../components/Baner.js";
 import Product from "../components/Product.js";
-import img from "../assets/product-xx99-mark-two-headphones/desktop/image-category-page-preview.jpg";
 import heroimage from "../assets/home/desktop/image-hero.jpg";
 import Blog from "../components/Blog.js";
 import headphone from "../assets/home/desktop/headphon.png";
@@ -10,13 +9,11 @@ import bigdyno from "../assets/home/desktop/BIG DYNO.png";
 import data from "../data.json";
 import { useNavigate } from "react-router-dom";
 import navigator from "../helperfunctions/navigator.js";
-import Portal from "../portals/Portal.js";
-import { useState } from "react";
+
 
 export default function Homepage() {
   const navigate = useNavigate();
 
-  const [active, setActive] = useState(false);
 
   return (
     <>
@@ -28,7 +25,7 @@ export default function Homepage() {
         btnclass="btnyellow"
         name={data[3].name}
         description={data[3].description}
-        // img={data[3].image.desktop}
+      
         alt="Earphones picture"
         click={() => {
           navigate(`/item`, {

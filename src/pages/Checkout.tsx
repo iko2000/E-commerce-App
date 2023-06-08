@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { objcontext } from "../App.js";
 import data from "../data.json";
 import Cart from "../components/Cart.js";
@@ -16,13 +16,22 @@ export default function Checkout() {
   } = useForm({
     defaultValues: {
       paymenthmethod: "CASH",
+      Country: '',
+      City: ' ',
+      Name: ' ',
+      email: ' ',
+      phonenum: ' ',
+      ZIPCODE: ' ',
+      address: ' ',
+      EmoneyCode: ' ', 
+      EmoneyNumber: ' '
     },
   });
  
   const [emoney, setEmoney] = useState(false);
-  const { obj, bill } = useContext(objcontext);
-  const [shipping, setShipping] = useState(50);
-  const [vat, setVat] = useState((bill * 0.18).toFixed(2));
+  const { obj, bill } = useContext<any>(objcontext);
+  const shipping = 50;
+  const vat = (bill * 0.18).toFixed(2);
   const [sendData, setSenddata] = useState({});
 
   const onSubmit = (paymentdata: any) => setSenddata(paymentdata);
@@ -451,7 +460,7 @@ export default function Checkout() {
                 <button
                   onClick={handleSubmit((d) => setSenddata(d))}
                   type="submit"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", borderRadius: "15px" }}
                   className="btnyellow"
                 >
                   CONTINUE & PAY

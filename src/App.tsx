@@ -17,9 +17,9 @@ import Cart from "./components/Cart.js";
 import shopingcart from "./assets/shared/desktop/icon-cart.svg"
 import { useNavigate } from "react-router-dom";
 import Checkout from "./pages/Checkout.js";
-export const Themecontext = createContext(null);
-export const statecontext = createContext(null);
-export const objcontext = createContext(null);
+export const Themecontext = createContext('');
+export const statecontext = createContext('');
+export const objcontext = createContext<any>(' ');
 
 
 
@@ -30,13 +30,14 @@ function App() {
 
 
   const [nav, setNav] = useState("");
+  const [burger, setBurger] = useState(false);
   const [active, setActive] = useState(false);
-  const [bill, setBill] = useState(0);
-  const [numberofItems, setNumberofItems] = useState(0);
+  const [bill, setBill] = useState<any>(0);
+  const [numberofItems, setNumberofItems] = useState<any>(0);
 
 
 const defaultCart = () => {
-  let cart = {};
+  let cart:any = {};
   for(let i = 1; i < data.length + 1 ; i++ ) {
     cart[i] = 0;
   }
@@ -44,15 +45,15 @@ const defaultCart = () => {
 }
 
 
-  const [obj, setObj] = useState(defaultCart())
+  const [obj, setObj] = useState<Record<number, number>>(defaultCart())
 
-  const addItem = (itemId:any, quantity) => {
-    setObj((obj) => ({...obj, [itemId]: quantity}))
+  const addItem:any = (itemId:any, quantity:any) => {
+    setObj((obj:any) => ({...obj, [itemId]: quantity}))
    
 
   }
 
-  const removeState = (num) => {
+  const removeState:any = (num:any ) => {
     setNav(num);
  
   }
@@ -65,16 +66,16 @@ const defaultCart = () => {
   useEffect(() => {
     let totalBill = 0;
   
-    Object.entries(obj).forEach(([itemId, quantity]) => {
-      const item = data.find(item => item.id == itemId);
+    Object.entries(obj).forEach(([itemId, quantity]:any) => {
+      const item:any = data.find(item => item.id == itemId);
       if (item) {
         totalBill += item.price * quantity;
       }
     });
-    console.log("totalbill", totalBill);
+  
   
     setBill(totalBill);
-    const total = Object.values(obj).reduce((accumulator, currentValue) => {
+    const total = Object.values(obj).reduce((accumulator:any, currentValue:any) => {
       return accumulator + currentValue;
     }, 0);
   
@@ -90,10 +91,9 @@ const defaultCart = () => {
 
 
 
-  console.log('HOW MANY ITEMS?', numberofItems)
   return (
     <>
-    <objcontext.Provider value={{obj, bill}}> 
+    <objcontext.Provider value={{ obj, bill }}>
     <statecontext.Provider value={removeState}>
     <Themecontext.Provider value={addItem}>
       <header className={nav ? "header-active" : ""}>
@@ -101,7 +101,7 @@ const defaultCart = () => {
           <span style={{fontSize: "27px"}}><Link onClick={() => setNav("")} to="/">
               audiophile
             </Link></span>
-          <ul>
+          <ul className="ul">
             <Link onClick={() => setNav("")} to="/">
               HOME
             </Link>
@@ -115,12 +115,28 @@ const defaultCart = () => {
               EARPHONES
             </Link>
           </ul>
+          {burger ? <div style={{color: 'yellow', fontSize: '12px', width: '20%', height: "200px", display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '150px'}}> <Link onClick={() => setNav("")} to="/">
+              HOME
+            </Link>
+            <Link onClick={() => setNav("HEADPHONES")} to="/headphones">
+              HEADPHONES
+            </Link>
+            <Link onClick={() => setNav("SPEAKERS")} to="/speakers">
+              SPEAKERS
+            </Link>
+            <Link onClick={() => setNav("EARPHONES")} to="/earphones">
+              EARPHONES
+            </Link> </div> : null }
+          <span onClick={() => {
+            setBurger(!burger)
+          }} className="burgermenu">BUR</span>
+         
           <span onClick={() => setActive(!active)}><img style={{cursor: "pointer"}} src={shopingcart} /></span>
           <Portal>
-            {" "}
+      
             {active ? (
               <div className="basket">
-                <div style={{width: '100%', heigth: '20px', display: 'flex', justifyContent: 'space-between'}}><h1 style={{fontSize: '15px'}}> CART ({numberofItems})</h1>  <p onClick={() => setObj(defaultCart())}>Remove all</p>  </div>
+                <div style={{width: '100%', height: '20px', display: 'flex', justifyContent: 'space-between'}}><h1 style={{fontSize: '15px'}}> CART ({numberofItems})</h1>  <p onClick={() => setObj(defaultCart())}>Remove all</p>  </div>
                 {data.map((item) => {
                 if(obj[item.id] !== 0) {
                   return (
@@ -131,7 +147,7 @@ const defaultCart = () => {
                 }
                 })}
                   {numberofItems ? <div style={{width: '100%', display: 'flex', justifyContent: 'space-between'}}> <p>TOTAL:  </p><p>$ {bill} </p></div> : null }
-                 {numberofItems ?    <button style={{width: '100%'}} className="btnyellow" onClick={() => {
+                 {numberofItems ?    <button style={{width: '100%', borderRadius: "10px"}} className="btnyellow" onClick={() => {
                   navigate("/checkout")
                   setActive(false)
                  }}>CHECK OUT</button> : null}
@@ -142,11 +158,14 @@ const defaultCart = () => {
         </nav>
         {nav ? (
           <div className="active-nav">
-            <h2>{nav}</h2>
+            <h2 style={{color: 'white'}}>{nav}</h2>
           </div>
         ) : null}
       </header>
-      <main onClick={() => setActive(false)} style={active ? {zIndex: '-2', filter: 'blur(2px)'} : null}>
+      <main onClick={() => {
+        setActive(false)
+        setBurger(false)
+      }} style={active ? {zIndex: '-2', filter: 'blur(2px)'} : {width: '100%'}}>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/headphones" element={<Headphones />} />

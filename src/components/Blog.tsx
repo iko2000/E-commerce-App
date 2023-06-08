@@ -4,7 +4,7 @@ import img from "../assets/home/blogman.png";
 
 
 
-function Blog(props:any) {
+function Blog() {
 
 
     return <>

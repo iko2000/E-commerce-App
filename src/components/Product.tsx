@@ -8,7 +8,7 @@ function Product(props: any) {
           <div className="product-boxes">
             <img src={props.src1} />
             <h6
-              style={{ fontSize: "25px", color: "black", fontWeight: "bold" }}
+             className="h6"
             >
               {props.name1}
             </h6>
@@ -23,9 +23,7 @@ function Product(props: any) {
           </div>
           <div className="product-boxes">
             <img src={props.src2} />
-            <h6
-              style={{ fontSize: "25px", color: "black", fontWeight: "bold" }}
-            >
+            <h6 className="h6">
               {props.name2}
             </h6>
             <span style={{ cursor: "pointer" }} onClick={props.shop2}>
@@ -41,7 +39,7 @@ function Product(props: any) {
           <div className="product-boxes">
             <img src={props.src3} />
             <h6
-              style={{ fontSize: "25px", color: "black", fontWeight: "bold" }}
+             className="h6"
             >
               {props.name3}
             </h6>

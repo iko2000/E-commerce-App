@@ -7,23 +7,26 @@ import Blog from "../components/Blog.js";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { statecontext, Themecontext } from "../App.js";
-import testimage from "../assets/product-zx9-speaker/desktop/image-gallery-2.jpg";
 import navigator from "../helperfunctions/navigator.js";
 import { useNavigate } from "react-router-dom";
 import data from "../data.json";
 
-export default function Item(props: any) {
-  const navigate = useNavigate();
-  const location = useLocation();
 
-  const addIt = useContext(Themecontext);
-  const removestate = useContext(statecontext);
+
+
+
+export default function Item() {
+  const navigate = useNavigate();
+  const location  = useLocation();
+
+  const addIt:any = useContext(Themecontext);
+  const removestate:any = useContext(statecontext);
 
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState(0);
-
-  const id = location.state.id;
+  console.log(name, price);
+  const id = location.state?.id;
   
 
   useEffect(() => {
@@ -31,10 +34,12 @@ export default function Item(props: any) {
   }, []);
 
   function handleClick() {
-    // const nam = props.name;
-
-    addIt(id, quantity);
-    // nam();
+    
+   
+      addIt(id, quantity);
+   
+    
+    
   }
 
   useEffect(() => {
@@ -42,34 +47,27 @@ export default function Item(props: any) {
     setName(location.state.name);
   }, [quantity]);
 
-  let first: any;
-  let second: any;
-  let third: any;
+  let first: number | undefined;
+  let second: number | undefined;
+  let third: number | undefined;
 
-  console.log(
-    location.state.finder1,
-    location.state.finder2,
-    location.state.finder3,
-    location.state.featurename1,
-    location.state.featurename2,
-    location.state.featurename3
-  );
+
  
     for (let i = 0; i < data.length; i++) {
       if (data[i].slug == location.state.finder1) {
         first = i;
-        console.log("Entered first block");
+       
       }
       if (data[i].slug == location.state.finder2) {
         second = i;
-        console.log("Entered second block");
+     
       }
       if (data[i].slug == location.state.finder3) {
         third = i;
-        console.log("Entered third block");
+  
       }
     }
-    console.log("DATAS collected", first, second, third);
+  
   
 
   return (
@@ -198,19 +196,19 @@ export default function Item(props: any) {
             navigate(`/item`, {
               state: navigator(data, first),
             });
-            console.log("WORKS");
+           
           }}
           click2={() => {
             navigate(`/item`, {
               state: navigator(data, second),
             });
-            console.log("WORKS");
+          
           }}
           click3={() => {
             navigate(`/item`, {
               state: navigator(data, third),
             });
-            console.log("WORKS");
+          
           }}
         />
         <Product

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Product from "../components/Product.js";
 import image1 from "../assets/headphones/8910.png";
 import image2 from "../assets/headphones/5678.png";
-import image3 from "../assets/headphones/1234.png";
 import headphone from "../assets/home/desktop/headphon.png";
 import speaker from "../assets/home/desktop/speak.png";
 import dyno from "../assets/home/desktop/dyno.png";
@@ -17,7 +16,6 @@ function Headphones() {
   return (
     <>
       <Baner
-        // style={{ backgroundColor: "#0E0E0E" }}
         style2={{ color: "black" }}
         classname="banner-reverse"
         new={data[3].new}
@@ -34,7 +32,7 @@ function Headphones() {
         }}
       />
       <Baner
-        // style={{ backgroundColor: "#0E0E0E" }}
+        
         style2={{ color: "black" }}
         classname="baner-row"
         new={data[2].new}
@@ -51,7 +49,7 @@ function Headphones() {
         }}
       />
       <Baner
-        // style={{ backgroundColor: "#0E0E0E" }}
+      
         style2={{ color: "black" }}
         classname="banner-reverse"
         name={data[1].name}
